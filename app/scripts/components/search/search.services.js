@@ -22,9 +22,6 @@ function SearchService($http, $q, $window) {
       };
 
       return $http(req);
-    },
-    search: function(query) {
-
     }
   };
 }

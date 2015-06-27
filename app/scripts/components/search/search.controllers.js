@@ -1,5 +1,5 @@
 /* @ngInject */
-function SearchController($scope, SearchService, $state, $location) {
+function SearchController($scope, $location) {
   this.searchTerm = $scope.initQuery || "";
 
   this.search = function(evt) {
@@ -10,5 +10,5 @@ function SearchController($scope, SearchService, $state, $location) {
   }
 }
 
-angular.module("search.controllers", ["search.services"])
+angular.module("search.controllers", [])
   .controller("SearchController", SearchController);

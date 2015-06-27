@@ -4,8 +4,8 @@ function ForeCastController($scope, SearchService, $stateParams, $location, $sta
 
   function getData() {
     SearchService.getData(self.query)
-      .then(function onSuccess(data) {
-        console.log(data);
+      .then(function onSuccess(res) {
+        console.log(res.data);
       }, function onError() {
         // TODO
       });

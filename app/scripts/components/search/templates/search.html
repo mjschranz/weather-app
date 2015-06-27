@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-lg-offset-3 col-lg-6">
+    <div class="input-group">
+      <input placeholder="Enter a city"
+             type="text"
+             value="{{ sc.searchTerm }}"
+             data-ng-keypress="sc.search($event)"
+             data-ng-model="sc.searchTerm"
+             class="form-control"/>
+      <span class="input-group-btn">
+        <button class="btn btn-default" data-ng-click="sc.search($event)" type="button">Search</button>
+      </span>
+    </div>
+    <div data-ng-repeat="day in data.list">
+      {{ day.clouds }}
+    </div>
+  </div>
+</div>

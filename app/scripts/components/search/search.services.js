@@ -1,5 +1,5 @@
 /* @ngInject */
-function SearchService($http, $q, $window) {
+function SearchService($http, $q, $rootScope) {
   return {
     getData: function(query, unit) {
       query = (query || "").trim();
@@ -21,6 +21,7 @@ function SearchService($http, $q, $window) {
         }
       };
 
+      $rootScope.requestActive = true;
       return $http(req);
     }
   };

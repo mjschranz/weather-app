@@ -12,6 +12,51 @@ body {
   padding-right: 0 !important;
 }
 
+.app-loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1000;
+  background: #fff;
+  opacity: .5;
+
+  i {
+    color: #A90101;
+    z-index: 1010;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+    line-height: 100px;
+    text-align: center;
+    vertical-align: bottom;
+    height: 100px;
+    width: 100px;
+    cursor: pointer;
+  }
+
+  &.ng-enter,
+  &.ng-leave {
+    -webkit-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+    -moz-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+    transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  }
+
+  &.ng-enter,
+  &.ng-leave-active {
+    opacity: 0;
+  }
+
+  &.ng-leave,
+  &.ng-enter.ng-enter-active {
+    opacity: .5;
+  }
+}
+
+
 .wrapper {
   margin-top: 15px;
   text-align: center;

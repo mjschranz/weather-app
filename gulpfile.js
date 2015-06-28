@@ -28,7 +28,7 @@ var paths = {
   "src": "./src",
   "dev": "./dist",
   "stage": "./dist",
-  "bower": "./bower_components/**/*.{js,css,map}",
+  "bower": "./bower_components/**/*.{js,css,map,woff,woff2,otf,ttf,eot,svg}",
   js: {},
   html: {}
 };

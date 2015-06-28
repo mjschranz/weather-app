@@ -1,15 +1,18 @@
 /* @ngInject */
-function ForeCastController($scope, SearchService, $stateParams, $location, $state) {
+function ForeCastController($scope, SearchService, $stateParams, $location,
+                            $state, $rootScope) {
   var self = this;
 
   function getData() {
     SearchService.getData(self.query, self.unit)
       .then(function onSuccess(res) {
+        $rootScope.requestActive = false;
         if (res) {
           self.city = res.data.city;
           self.results = res.data.list;
         }
       }, function onError() {
+        $rootScope.requestActive = false;
         // TODO
       });
   }

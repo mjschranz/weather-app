@@ -3,9 +3,12 @@ function ForeCastController($scope, SearchService, $stateParams, $location, $sta
   var self = this;
 
   function getData() {
-    SearchService.getData(self.query)
+    SearchService.getData(self.query, self.unit)
       .then(function onSuccess(res) {
-        console.log(res.data);
+        if (res) {
+          self.city = res.data.city;
+          self.results = res.data.list;
+        }
       }, function onError() {
         // TODO
       });
@@ -13,11 +16,12 @@ function ForeCastController($scope, SearchService, $stateParams, $location, $sta
 
   if ($stateParams.query) {
     this.previousQuery = this.query = $stateParams.query;
+    this.previousUnit = this.unit = $stateParams.unit;
     getData();
   }
 
   $scope.$on("$locationChangeSuccess", function() {
-    if ($location.search()["query"] && $location.search()["query"] !== self.query) {
+    if ($location.search()["query"]) {
       $state.go("forecast", $location.search(), { inherit: false });
     }
   });

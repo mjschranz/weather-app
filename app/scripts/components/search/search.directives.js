@@ -6,7 +6,8 @@ function SearchWeather() {
     controller: "SearchController as sc",
     replace: true,
     scope: {
-      initQuery: "="
+      initQuery: "=",
+      initUnit: "="
     }
   };
 }

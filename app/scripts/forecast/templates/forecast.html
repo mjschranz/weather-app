@@ -1,3 +1,62 @@
 <div class="container">
-  <search-weather data-init-query="fc.previousQuery"></searchweather>
+  <div class="row">
+    <div class="col-lg-12">
+      <search-weather data-init-query="fc.previousQuery"
+                      data-init-unit="fc.previousUnit"></searchweather>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="wrapper">
+        <div data-ng-repeat="day in fc.results track by $index"
+             class="panel panel-default temperature-panel">
+          <div class="panel-body">
+            <div class="day-row">
+              {{ day.dt | date }}
+            </div>
+            <div class="city-row">
+              {{ fc.city.name | capitalize }}, {{ fc.city.country | uppercase }}
+            </div>
+            <div class="temperature-row">
+              <!-- Copy the image source from their home page was the only mentioned
+                   thing I could find to the matching "icon" set as nothing was returned
+                   in the API other than the icon "id". Needed to copy the rest of their
+                   url.
+
+                   Incase they somehow see this, I claim no copyright and that belongs to
+                   OpenWeatherMap.
+              -->
+              <img data-ng-src="http://openweathermap.org/img/w/{{ day.weather[0].icon }}.png">
+              <span class="temperature">{{ day.temp.day }}</span>
+              <span data-ng-if="fc.unit === 'metric'">C</span>
+              <span data-ng-if="fc.unit === 'imperial'">F</span>
+            </div>
+            <div class="description-row">
+              {{ day.weather[0].description | capitalize }}
+            </div>
+            <table class="table table-striped table-hover table-condensed table-bordered">
+              <tbody>
+                <tr>
+                  <th>High</th>
+                  <td>{{ day.temp.max }}</td>
+                </tr>
+                <tr>
+                  <th>Low</th>
+                  <td>{{ day.temp.min }}</td>
+                </tr>
+                <tr>
+                  <th>Humidity</th>
+                  <td>{{ day.humidity }} %</td>
+                </tr>
+                <tr>
+                  <th>Wind</th>
+                  <td>{{ day.speed }} m/s</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

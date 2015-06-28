@@ -1,5 +1,15 @@
 <div class="row">
   <div class="col-lg-offset-3 col-lg-6">
+    <div class="row">
+      <div class="col-lg-offset-6 col-lg-6">
+        <div class="btn-group pull-right" role="group">
+          <button type="button" data-ng-click="sc.setUnit('metric')" class="btn btn-default"
+                  data-ng-class="{ active: sc.unit === 'metric' }">Metric</button>
+          <button type="button" data-ng-click="sc.setUnit('imperial')" class="btn btn-default"
+                  data-ng-class="{ active: sc.unit === 'imperial' }">Imperial</button>
+        </div>
+      </div>
+    </div>
     <div class="input-group">
       <input placeholder="Enter a city"
              type="text"
@@ -10,9 +20,6 @@
       <span class="input-group-btn">
         <button class="btn btn-default" data-ng-click="sc.search($event)" type="button">Search</button>
       </span>
-    </div>
-    <div data-ng-repeat="day in data.list">
-      {{ day.clouds }}
     </div>
   </div>
 </div>

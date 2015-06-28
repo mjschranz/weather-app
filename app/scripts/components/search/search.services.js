@@ -1,7 +1,7 @@
 /* @ngInject */
 function SearchService($http, $q, $window) {
   return {
-    getData: function(query) {
+    getData: function(query, unit) {
       query = (query || "").trim();
 
       if (!query) {
@@ -17,7 +17,7 @@ function SearchService($http, $q, $window) {
         params: {
           q: query,
           cnt: 5,
-          units: "metric"
+          units: unit || "metric"
         }
       };
 

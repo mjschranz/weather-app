@@ -38,11 +38,19 @@
               <tbody>
                 <tr>
                   <th>High</th>
-                  <td>{{ day.temp.max }}</td>
+                  <td>
+                    <span class="temperature">{{ day.temp.max }}</span>
+                    <span data-ng-if="fc.unit === 'metric'">C</span>
+                    <span data-ng-if="fc.unit === 'imperial'">F</span>
+                  </td>
                 </tr>
                 <tr>
                   <th>Low</th>
-                  <td>{{ day.temp.min }}</td>
+                  <td>
+                    <span class="temperature">{{ day.temp.min }}</span>
+                    <span data-ng-if="fc.unit === 'metric'">C</span>
+                    <span data-ng-if="fc.unit === 'imperial'">F</span>
+                  </td>
                 </tr>
                 <tr>
                   <th>Humidity</th>
